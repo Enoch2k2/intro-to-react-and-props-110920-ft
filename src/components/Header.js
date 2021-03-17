@@ -2,14 +2,15 @@ import React from 'react';
 
 class Header extends React.Component {
 
-  constructor(props) {
-    super(props);
+  handleClick = (e) => {
+    this.props.changeColor();
   }
 
   render() {
+    console.log(this.props.color)
     return (
       <div>
-        <h1>{ this.props.children }</h1>
+        <h1 onClick={ this.handleClick } style={ { color: this.props.color } }>{ this.props.title }</h1>
       </div>
     )
   }
