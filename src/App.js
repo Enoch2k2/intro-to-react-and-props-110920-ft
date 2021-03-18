@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
+import Form from './components/Form';
 import List from './components/List';
 
 class App extends Component {
   state = {
-    color: "black"
+    blogs: []
   }
 
-  changeColor = () => {
+  addBlog = blog => {
     this.setState({
-      color: this.state.color == "black" ? "blue" : "black"
+      blogs: [...this.state.blogs, blog]
     })
   }
 
   render() {
     return (
       <div className="App">
-        <Header changeColor={ this.changeColor } color={this.state.color} title="Hello World" />
-        <List color={ this.state.color } />
+        <Form addBlog={ this.addBlog } />
+        <List blogs={ this.state.blogs } />
       </div>
     );
   }
