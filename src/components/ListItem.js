@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+// import React from 'react';
 
-class ListItem extends Component {
+// class ListItem extends Component {
 
-  render() {
-    return(
-      <div>
-        <h3>{ this.props.title }</h3>
-        <p>{ this.props.content }</p>
-      </div>
-    )
-  }
-}
+//   render() {
+//     const { title, content } = this.props;
+//     return(
+//       <div>
+//         <h3>{ title }</h3>
+//         <p>{ content }</p>
+//       </div>
+//     )
+//   }
+// }
+
+const ListItem = ({ title, content }) => (
+  <div>
+    <div>
+      <h3>{ title }</h3>
+      <p>{ content }</p>
+    </div>
+  </div>
+);
 
 export default ListItem;

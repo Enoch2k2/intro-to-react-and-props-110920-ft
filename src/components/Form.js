@@ -24,6 +24,8 @@ class Form extends Component {
       title: "",
       content: ""
     })
+
+    
   }
 
   render() {
