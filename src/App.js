@@ -8,6 +8,25 @@ class App extends Component {
     blogs: []
   }
 
+
+  // "DOM COntent Loaded kinda feel"
+
+  // Lifecycle methods ONLY WORK in CLass components. 
+
+  // spelling matters
+
+  componentDidMount() {
+    this.getAllPost()
+  }
+
+  getAllPost = () => {
+    fetch("http://localhost:3001/posts")
+    .then(r => r.json())
+    .then(data => {
+       this.setState({blogs: data})
+    })
+  }
+
   addBlog = blog => {
     this.setState({
       blogs: [...this.state.blogs, blog]
@@ -16,20 +35,10 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div className="App">
-          <Switch>
-            <Route 
-              exact path="/"
-              render={props => <List { ...props } blogs={ this.state.blogs } />}
-            />
-            <Route 
-              exact path="/blogs/new"
-              render={props => <Form {...props} addBlog={ this.addBlog } />}
-            />
-          </Switch>
+            <List blogs={ this.state.blogs } />
+            <Form  addBlog={ this.addBlog } />
         </div>
-      </Router>
     );
   }
 }

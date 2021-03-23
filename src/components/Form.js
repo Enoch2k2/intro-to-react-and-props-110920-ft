@@ -7,6 +7,28 @@ class Form extends Component {
     content: ""
   }
 
+
+ // this particular function allows us for a more control flow state 
+
+ // THIS MUST RETURN A BOOLEAN 
+  shouldComponentUpdate(nextProps, nextState) {
+     console.log(nextProps, "this is the next props");
+     console.log(nextState, "this is the nextState");
+     if(this.state.title !== nextState.title) {
+       return true
+     } else {
+       return false
+     }
+  }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Updated");
+    console.log(prevProps, "this was the previous Props");
+    console.log(prevState, "this was the previous State")
+  }
+
+
   handleChange = e => {
     this.setState( prevState => {
       return {

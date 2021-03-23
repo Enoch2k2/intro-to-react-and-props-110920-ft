@@ -1,0 +1,32 @@
+Lifecycle Methods
+
+
+1. Mounting Phase 
+
+a. We have certain functions ( this is also considered the baby phase) 
+
+b. Constructor()
+
+c. Render()
+
+d. ComponentDidMount()  => "Dom Content Loaded " 
+
+componentWIllMount .. depricated
+
+componentWillUpdate ... depricated 
+
+
+2. Updating Phase 
+
+a. shouldComponentUpdate() ==> which must return a boolean if this does not return a boolean you'll get a warning or react will yell at you and WILL not continue with your update
+
+b. render()
+
+c. componentDidUpdate >> DO NOT USE WILL UPDATE == Depricated
+
+
+3. Unmounting Phase 
+
+a. componentWillUnmount() 
+
+4. Error Handling Phase     
