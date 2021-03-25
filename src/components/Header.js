@@ -1,23 +1,22 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
 
-  handleClick = (e) => {
-    this.props.changeColor();
-  }
 
   render() {
-    console.log(this.props.color)
+
     return (
       <div>
-        <h1 onClick={ this.handleClick } style={ { color: this.props.color } }>{ this.props.title }</h1>
+        <Link to='/posts'> See all Posts</Link>
+        <br>
+        </br>
+        <Link to='/posts/new'> Create a new Post</Link>
+        <br>
+        </br>
       </div>
     )
   }
-}
-
-Header.defaultProps = {
-  name: "Bob"
 }
 
 export default Header;

@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 import Form from './components/Form';
 import List from './components/List';
-
+import Header from './components/Header';
+import Testing from './components/Testing';
 
 
 
@@ -49,13 +55,37 @@ const App = () => {
  
 
   return (
+    <Router>
         <div className="App">
-            <List blogs={ blogs } />
-            <Form  addBlog={ addBlog } />
-        </div>
-    );
+          <Header />
+          <Switch>
 
+              <Route exact path="/posts"> 
+                <List blogs={ blogs } />
+              </Route>
+
+              <Route exact path="/posts/new"> 
+                <Form  addBlog={ addBlog } />
+              </Route>
+
+              <Route path="/posts">
+                <div> Oops nothing is availbale at this url</div>
+              </Route>
+
+              <Route  exact path="/testing/:id/" component={(routerProps) => {
+                const findObj = blogs.find(el => el.id == routerProps.match.params.id)
+                return  <Testing obj={findObj}/>
+            }
+             } />
+
+          </Switch>
+
+
+        </div>
+     </Router>
+  )
 }
+
 
 // class App extends Component {
 //   state = {

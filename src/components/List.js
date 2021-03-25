@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 class List extends Component {
 
   render() {
-    const blogs = this.props.blogs.map( (blog, index) => <ListItem key={ index } title={ blog.title } content={ blog.content } />)
+    const blogs = this.props.blogs.map( (blog, index) => <ListItem key={ index } title={ blog.title } content={ blog.content } id={blog.id} />)
     return (
       <div>
         <h2>Blogs</h2>

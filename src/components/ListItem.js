@@ -1,4 +1,4 @@
-// import React from 'react';
+import { Link } from "react-router-dom";
 
 // class ListItem extends Component {
 
@@ -13,10 +13,10 @@
 //   }
 // }
 
-const ListItem = ({ title, content }) => (
+const ListItem = ({ id,  title, content }) => (
   <div>
     <div>
-      <h3>{ title }</h3>
+      <h3><Link to={`/testing/${id}`}>{ title }</Link></h3>
       <p>{ content }</p>
     </div>
   </div>
